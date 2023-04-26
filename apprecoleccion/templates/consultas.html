@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Consulta de fechas</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+	<button class="btn btn-primary btn-block" id="buscar" onclick="location.href='/mostrarprincipal'">Regresar</button>  
+	<div class="container mt-5">
+		<h1>Cantidad_Plastico_Recogido</h1>
+		<div class="card mt-3">
+			<div class="card-header">
+				<h2Cantidad_Plastico_Recogido</h2>
+                {% if respuesta %}
+		            <div class="alert alert-success alert-dismissible fade show" role="alert">
+			        <h5>{{ respuesta }}</h5>
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+			        <span aria-hidden="true">&times;</span>
+			        </button>
+		            </div>
+		        {% endif %}
+			</div>
+			<div class="card-body">
+				<form action="/consultas" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="caneca">Colegio:</label>
+                        <select class="form-control" id="caneca" name="colegio">
+                            <option value="" selected disabled>Selecciona el colegio</option>
+                            {% for k in colfk %}
+                                <option value="{{ k.nit }}">{{ k.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label for="fechaInicio1">Fecha:</label>
+							<input type="date" class="form-control" id="fechaInicio1" name="fechainicio">
+						</div>
+						<div class="col-sm-6">
+							<label for="fechaFin1">Fecha fin:</label>
+							<input type="date" class="form-control" id="fechaFin1" name="fechafin">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Calcular</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+    <div class="container mt-5">
+		<h1>Dinero_Invertido_Entre_Fechas</h1>
+		<div class="card mt-3">
+			<div class="card-header">
+				<h2Dinero_Invertido_Entre_Fechas</h2>
+                {% if respuesta4 %}
+		            <div class="alert alert-success alert-dismissible fade show" role="alert">
+			        <h5>{{ respuesta4 }}</h5>
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+			        <span aria-hidden="true">&times;</span>
+			        </button>
+		            </div>
+		        {% endif %}
+			</div>
+			<div class="card-body">
+				<form action="/consultas4" method="post">
+                    {% csrf_token %}
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label for="fechaInicio1">Fecha:</label>
+							<input type="date" class="form-control" id="fechaInicio1" name="fechainicio">
+						</div>
+						<div class="col-sm-6">
+							<label for="fechaFin1">Fecha fin:</label>
+							<input type="date" class="form-control" id="fechaFin1" name="fechafin">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Calcular</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+    <div class="container mt-5">
+		<h1>Cantidad_Material_Recogido_Operario</h1>
+		<div class="card mt-3">
+			<div class="card-header">
+				<h2Cantidad_Plastico_Recogido</h2>
+                {% if respuesta5 %}
+		            <div class="alert alert-success alert-dismissible fade show" role="alert">
+			        <h5>{{ respuesta5 }}</h5>
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+			        <span aria-hidden="true">&times;</span>
+			        </button>
+		            </div>
+		        {% endif %}
+			</div>
+			<div class="card-body">
+				<form action="/consultas5" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="caneca">Operario:</label>
+                        <select class="form-control" id="caneca" name="operario">
+                            <option value="" selected disabled>Selecciona el colegio</option>
+                            {% for k in opefk %}
+                                <option value="{{ k.documento }}">{{ k.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label for="fechaInicio1">Fecha:</label>
+							<input type="date" class="form-control" id="fechaInicio1" name="fechainicio">
+						</div>
+						<div class="col-sm-6">
+							<label for="fechaFin1">Fecha fin:</label>
+							<input type="date" class="form-control" id="fechaFin1" name="fechafin">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Calcular</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+    <div class="container mt-5">
+		<h1>Cantidad dinero pagado a un colegio</h1>
+		<div class="card mt-3">
+			<div class="card-header">
+				<h2Cantidad_Plastico_Recogido</h2>
+                {% if respuesta7 %}
+		            <div class="alert alert-success alert-dismissible fade show" role="alert">
+			        <h5>{{ respuesta7 }}</h5>
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+			        <span aria-hidden="true">&times;</span>
+			        </button>
+		            </div>
+		        {% endif %}
+			</div>
+			<div class="card-body">
+				<form action="/consultas7" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="caneca">Colegio:</label>
+                        <select class="form-control" id="caneca" name="colegio">
+                            <option value="" selected disabled>Selecciona el colegio</option>
+                            {% for k in colfk %}
+                                <option value="{{ k.nit }}">{{ k.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label for="fechaInicio1">Fecha:</label>
+							<input type="date" class="form-control" id="fechaInicio1" name="fechainicio">
+						</div>
+						<div class="col-sm-6">
+							<label for="fechaFin1">Fecha fin:</label>
+							<input type="date" class="form-control" id="fechaFin1" name="fechafin">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Calcular</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-5">
+		<h1>Cantidad de plastico por caneca</h1>
+		<div class="card mt-3">
+			<div class="card-header">
+				<h2Cantidad_Plastico_Recogido</h2>
+                {% if respuesta8 %}
+		            <div class="alert alert-success alert-dismissible fade show" role="alert">
+			        <h5>{{ respuesta8 }}</h5>
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+			        <span aria-hidden="true">&times;</span>
+			        </button>
+		            </div>
+		        {% endif %}
+			</div>
+			<div class="card-body">
+				<form action="/consultas8" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="caneca">Colegio:</label>
+                        <select class="form-control" id="caneca" name="caneca">
+                            <option value="" selected disabled>Selecciona el canenca</option>
+                            {% for k in canfk %}
+                                <option value="{{ k.codigo }}">{{ k.codigo }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<label for="fechaInicio1">Fecha:</label>
+							<input type="date" class="form-control" id="fechaInicio1" name="fechainicio">
+						</div>
+						<div class="col-sm-6">
+							<label for="fechaFin1">Fecha fin:</label>
+							<input type="date" class="form-control" id="fechaFin1" name="fechafin">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Calcular</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

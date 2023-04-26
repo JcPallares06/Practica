@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gestionar Recolección</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h2>Gestionar Recolección</h2>
+		<div class="row">
+			<div class="col-md-12 mb-3">
+				<a href="/mostrarprincipal" class="btn btn-primary">Regresar</a>
+				<a href="/mostraragregarrecoleccion" class="btn btn-success float-right">Registrar</a>
+			</div>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Operario</th>
+					<th>Caneca</th>
+					<th>Colegio</th>
+					<th>Peso</th>
+					<th>Cantidad</th>
+					<th>Precio por Kilo</th>
+					<th>Total</th>
+					<th>Fecha</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			{% for xx in  rec%}
+			<tbody>
+				<tr>
+					<td>{{xx.id}}</td>
+					<td>{{xx.operario_id}}</td>
+					<td>{{xx.caneca_id}}</td>
+					<td>{{xx.colegio_id}}</td>
+					<td>{{xx.peso}}</td>
+					<td>{{xx.cantidad}}</td>
+					<td>{{xx.preciokilo}}</td>
+					<td>{{xx.total}}</td>
+					<td>{{xx.fecha}}</td>
+					<td>
+						<a href="/mostraractualizarrecoleccion/{{xx.id}}" class="btn btn-warning">Editar</a>
+						<a href="/eliminarrecoleccion/{{xx.id}}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+			{% endfor %}
+		</table>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

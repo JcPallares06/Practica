@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario Operarios</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container mt-5">
+		<h1>Formulario Operarios</h1>
+		<form action="/actualizaroperario/{{ope.documento}}" method="post">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="documento">Documento:</label>
+				<input type="text" class="form-control" id="documento" placeholder="Ingresa el documento" name="documento" value="{{ope.documento}}">
+			</div>
+			<div class="form-group">
+				<label for="nombre">Nombre:</label>
+				<input type="text" class="form-control" id="nombre" placeholder="Ingresa el nombre" name="nombre" value="{{ope.nombre}}">
+			</div>
+			<div class="form-group">
+				<label for="telefono">Teléfono:</label>
+				<input type="text" class="form-control" id="telefono" placeholder="Ingresa el teléfono" name="telefono" value="{{ope.telefono}}">
+			</div>
+			<div class="form-group">
+				<label for="correo">Correo:</label>
+				<input type="email" class="form-control" id="correo" placeholder="Ingresa el correo" name="correo" value="{{ope.correo}}">
+			</div>
+			<div class="form-group">
+				<label for="sueldo">Sueldo:</label>
+				<input type="number" class="form-control" id="sueldo" placeholder="Ingresa el sueldo" name="sueldo" value="{{ope.sueldo}}">
+			</div>
+			<button type="submit" class="btn btn-primary">Actualizar</button>
+			<a href="/mostrarlistaroperario" class="btn btn-secondary">Regresar</a>
+		</form>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

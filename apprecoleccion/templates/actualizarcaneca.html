@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario Canecas</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container mt-5">
+		<h1>Formulario Canecas</h1>
+		<form action="/actualizarcaneca/{{can.codigo}}" method="post">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="codigo">Código:</label>
+				<input type="text" class="form-control" id="codigo" placeholder="Ingresa el código" name="codigo" value="{{can.codigo}}">
+			</div>
+			<div class="form-group">
+				<label for="ancho">Ancho:</label>
+				<input type="text" class="form-control" id="ancho" placeholder="Ingresa el ancho" name="ancho" value="{{can.ancho}}">
+			</div>
+			<div class="form-group">
+				<label for="alto">Alto:</label>
+				<input type="text" class="form-control" id="alto" placeholder="Ingresa el alto" name="alto" value="{{can.alto}}">
+			</div>
+			<button type="submit" class="btn btn-primary">Actualizar</button>
+			<a href="/mostrarlistarcaneca" class="btn btn-secondary">Regresar</a>
+		</form>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
